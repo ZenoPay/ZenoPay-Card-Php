@@ -133,7 +133,7 @@ $data = array(
     'buyer_phone' => '+254712345678',
     'buyer_email' => 'johndoe@example.com',
     'amount' => 150.00,
-    'account_id' => 'acc_12345xyz'
+    'account_id' => 'zp87778'
 );
 
 // Convert the data array to JSON
