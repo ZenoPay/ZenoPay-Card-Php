@@ -31,7 +31,7 @@ This repository contains an example PHP implementation for interacting with the 
 
 1. Clone the repository or download the `zenopay-card-api` folder.
    ```bash
-   git clone https://github.com/yourusername/zenopay-card-api.git
+   git clone https://github.com/ZenoPay/ZenoPay-Card-Php.git
    ```
    
 2. Ensure your PHP environment has the required cURL extension enabled. You can check this by running the following command:
