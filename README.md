@@ -171,7 +171,9 @@ $data = array(
     'buyer_phone'  => '255712345678',
     'buyer_email'  => 'johndoe@example.com',
     'amount'       => 15000,
-    'account_id'   => 'acc_12345xyz',
+    'account_id'   => 'your_account_id',
+    'api_key'   =>'api_secret_key',
+    'secret_key'   =>'your_secret_key',
     'redirect_url' => 'https://example.com/success',
     'cancel_url'   => 'https://example.com/cancel',
 );
