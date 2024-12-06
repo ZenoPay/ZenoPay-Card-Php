@@ -98,9 +98,9 @@ To initiate a payment transaction, send a **POST** request to the API with a JSO
 | Parameter        | Type    | Description                                        | Example               |
 |------------------|---------|----------------------------------------------------|-----------------------|
 | `buyer_name`     | string  | Full name of the buyer                             | `"John Doe"`          |
-| `buyer_phone`    | string  | Phone number of the buyer                          | `"+254712345678"`     |
+| `buyer_phone`    | string  | Phone number of the buyer                          | `"255712345678"`     |
 | `buyer_email`    | string  | Email address of the buyer                         | `"johndoe@example.com"`|
-| `amount`         | float   | Amount to be paid by the buyer in the transaction  | `150.00`              |
+| `amount`         | float   | Amount to be paid by the buyer in the transaction  | `1500.00`              |
 | `account_id`     | string  | Unique account identifier for the transaction      | `"acc_12345xyz"`      |
 | `redirect_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/success"` |
 | `cancel_url`     | string  | URL to redirect to if the payment is cancelled     | `"https://example.com/cancel"`  |
@@ -118,7 +118,7 @@ The API responds with a JSON object. A successful response looks like this:
     "message": "Payment processed successfully",
     "data": {
         "buyer_name": "John Doe",
-        "buyer_phone": "+254712345678",
+        "buyer_phone": "255712345678",
         "buyer_email": "johndoe@example.com",
         "amount": 150.00,
         "account_id": "acc_12345xyz"
@@ -168,7 +168,7 @@ $url = 'https://api.zeno.africa/card';
 // Data to be sent in the POST request
 $data = array(
     'buyer_name'   => 'John Doe',
-    'buyer_phone'  => '+254712345678',
+    'buyer_phone'  => '255712345678',
     'buyer_email'  => 'johndoe@example.com',
     'amount'       => 15000,
     'account_id'   => 'acc_12345xyz',
