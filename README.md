@@ -1,5 +1,3 @@
-
-
 # ZenoPay-Card-Php
 ### ZenoPay Card API Integration
 
@@ -9,10 +7,9 @@ The ZenoPay Card API allows you to seamlessly integrate card payment functionali
 
 This repository contains a simple PHP implementation for interacting with the ZenoPay Card API, making it easy to integrate card payment services into your PHP-based applications.
 
-
 Note: All amounts should be provided in TZS (Tanzanian Shillings).
 
-
+---
 
 ## Table of Contents
 
@@ -25,6 +22,7 @@ Note: All amounts should be provided in TZS (Tanzanian Shillings).
   - [Error Handling](#error-handling)
 - [PHP Example Code](#php-example-code)
 - [How to Use](#how-to-use-the-example)
+- [Webhook Handling](#webhook-handling)
 - [License](#license)
 - [Support](#support)
 
@@ -102,6 +100,7 @@ To initiate a payment transaction, send a **POST** request to the API with a JSO
 | `buyer_email`    | string  | Email address of the buyer                         | `"johndoe@example.com"`|
 | `amount`         | float   | Amount to be paid by the buyer in the transaction  | `1500.00`              |
 | `account_id`     | string  | Unique account identifier for the transaction      | `"acc_12345xyz"`      |
+| `webhook_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/webhook"` |
 | `redirect_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/success"` |
 | `cancel_url`     | string  | URL to redirect to if the payment is cancelled     | `"https://example.com/cancel"`  |
 
@@ -174,6 +173,7 @@ $data = array(
     'account_id'   => 'your_account_id',
     'api_key'      =>'api_secret_key',
     'secret_key'   =>'your_secret_key',
+    'webhook_url'  => 'https://example.com/webhook',
     'redirect_url' => 'https://example.com/success',
     'cancel_url'   => 'https://example.com/cancel',
 );
@@ -228,6 +228,36 @@ echo '</pre>';
 
 ---
 
+## Webhook Handling
+
+After a payment is processed, ZenoPay may send a **webhook** to notify you about the status of the transaction. You can use the following PHP code to handle the webhook and log the incoming data for further processing or debugging.
+
+### Webhook PHP Example
+
+```php
+<?php
+
+// Webhook handling
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the raw POST data from the incoming webhook
+    $data = file_get_contents('php://input');
+    
+    // Log the raw data with a timestamp
+    file_put_contents('weblogs.txt', "[" . date('Y-m-d H:i:s') . "] WebHook Data: ".$data."\n", FILE_APPEND);
+}
+
+?>
+```
+
+### How the Webhook Works:
+1. **Receiving Webhook Data**: This script listens for incoming **POST** requests (which ZenoPay sends for webhooks
+
+) and reads the raw data from the request body using `file_get_contents('php://input')`.
+   
+2. **Logging Webhook Data**: The webhook data is logged to a file (`weblogs.txt`) along with a timestamp for reference. This log will help you debug and track transaction statuses or other data sent via the webhook.
+
+---
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
@@ -236,7 +266,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Support
 
-For any issues or questions, please contact us at [support@zeno.africa](mailto:support@zeno.africa). 
+For any issues or questions, please contact us at [support@zeno.africa](mailto:support@zeno.africa).
 
 ---
 

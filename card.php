@@ -10,6 +10,7 @@ $data = array(
     'buyer_email'   => 'johndoe@example.com',
     'amount'        => 1000,
     'account_id'    => 'zp87778',
+    'webhook_url'   => 'https://example.com/success',
     'redirect_url'  => 'https://example.com/success',
     'cancel_url'    => 'https://example.com/cancel',
 );
