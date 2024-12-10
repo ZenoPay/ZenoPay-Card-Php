@@ -100,7 +100,7 @@ To initiate a payment transaction, send a **POST** request to the API with a JSO
 | `buyer_email`    | string  | Email address of the buyer                         | `"johndoe@example.com"`|
 | `amount`         | float   | Amount to be paid by the buyer in the transaction  | `1500.00`              |
 | `account_id`     | string  | Unique account identifier for the transaction      | `"acc_12345xyz"`      |
-| `webhook_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/webhook"` |
+| `webhook_url`   | string   | URL to receive payment notifications               | `"https://example.com/webhook"` |
 | `redirect_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/success"` |
 | `cancel_url`     | string  | URL to redirect to if the payment is cancelled     | `"https://example.com/cancel"`  |
 
