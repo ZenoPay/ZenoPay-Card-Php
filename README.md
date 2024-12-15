@@ -99,6 +99,7 @@ To initiate a payment transaction, send a **POST** request to the API with a JSO
 | `buyer_phone`    | string  | Phone number of the buyer                          | `"255712345678"`     |
 | `buyer_email`    | string  | Email address of the buyer                         | `"johndoe@example.com"`|
 | `amount`         | float   | Amount to be paid by the buyer in the transaction  | `1500.00`              |
+| `billing.country`     | string  | country short code    | `"TZ , KE , US , UK , UG , etc"`      |
 | `account_id`     | string  | Unique account identifier for the transaction      | `"acc_12345xyz"`      |
 | `webhook_url`   | string   | URL to receive payment notifications               | `"https://example.com/webhook"` |
 | `redirect_url`   | string  | URL to redirect to after successful payment        | `"https://example.com/success"` |
@@ -120,6 +121,7 @@ The API responds with a JSON object. A successful response looks like this:
         "buyer_phone": "255712345678",
         "buyer_email": "johndoe@example.com",
         "amount": 150.00,
+        "billing.country" : "TZ", 
         "account_id": "acc_12345xyz"
     }
 }
@@ -170,6 +172,7 @@ $data = array(
     'buyer_phone'  => '255712345678',
     'buyer_email'  => 'johndoe@example.com',
     'amount'       => 15000,
+    'billing.country' => 'TZ', 
     'account_id'   => 'your_account_id',
     'api_key'      =>'api_secret_key',
     'secret_key'   =>'your_secret_key',
@@ -247,10 +250,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-
-
-
-WebHook Data: {"order_id":"6757c69cddfa6","payment_status":"COMPLETED","reference":"0882061614"}
 ```
 
 ### How the Webhook Works:
