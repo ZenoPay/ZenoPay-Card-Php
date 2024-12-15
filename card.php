@@ -9,6 +9,7 @@ $data = array(
     'buyer_phone'   => '+254712345678',
     'buyer_email'   => 'johndoe@example.com',
     'amount'        => 1000,
+    'billing.country' => 'TZ', 
     'account_id'    => 'zp87778',
     'webhook_url'   => 'https://example.com/success',
     'redirect_url'  => 'https://example.com/success',
